@@ -2,6 +2,8 @@
 
 An HLS.js player created from scratch with custom controls.  WIP
 
-TODO:
-look into BufferStallErrors (more likely Akamai universal stream packaging related - mostly fixed)
-Look into loading as Classes (? - since its all event driven, we probably wont get much milage from this)
+This player is mostly used for testing purposes and not intended for release (at least not without a lot of cleanup)
+
+![Player Controls](./player/img/player-tools.png?raw=true "HLS.js Player")
+
+
