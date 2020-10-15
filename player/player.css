@@ -1,0 +1,205 @@
+:root {
+    --primary: #4CAF50;
+    --secondary: #8080ff;
+    --slider-thickness: 1px;
+    --slider-thumb-thickness: 5px;
+    --slider-thumb-width: 16px;
+    --branding: url('/player/img/mlg-logo-loop.gif');
+    --largeplay: url('/player/img/large-play-icon.png');
+    --largepause: url('/player/img/large-pause-icon2.png');
+}
+
+/* Player */
+.player {
+    position: relative;
+    max-width: 1280px;
+    max-height: 720px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden; /* prevents spill out of some videos not correct aspect ratio */
+    /* background: #000; */
+}
+video {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+
+/* Player settings Panel */
+.player-settings {
+    color: white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 45%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2147483631;
+    display: none;
+    overflow: hidden;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 0.8em;
+}
+.player-settings h3{
+    margin: 0.2em 0;
+    border-bottom: 1px solid var(--primary);
+}
+.player-settings .container {
+    padding: 5%;
+    width: 40%;
+    float: left;
+}
+.player-settings .container a {
+    color: #FFF;
+    text-decoration: none;
+    line-height: 1.1em
+}
+.player-settings .container a.selected {
+    color: var(--secondary);
+    text-shadow: 1px 1px 2px #111;
+}
+.player-settings ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.player:fullscreen .player-settings {
+    left: 75%;
+    height: 30%;
+    top: 70%;
+}
+
+/* Full Screen Play Button */
+.large-toggle{
+    color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 2147483620;
+    overflow: hidden;
+}
+/* .large-play:hover {
+    background: var(--largeplay) top center no-repeat rgba(0, 0, 0, 0.3);
+}
+.large-pause:hover {
+    background: var(--largepause) top center no-repeat rgba(0, 0, 0, 0.3);
+} */
+
+/* Controls */
+.controlbar{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 44px; /* 34px */
+    width: 100%;
+    padding: 0 1%;
+    box-sizing: border-box;
+    background: var(--branding) top center no-repeat rgba(0, 0, 0, 0.3);
+    background-size: 75px 50px;
+    /*background: url:('/img/mlg-logo-loop.gif') rgba(0, 0, 0, 0.3);*/
+    z-index: 2147483632 !important;
+    display: none;
+}
+.player:hover .controlbar{
+    display: block;
+}
+.controlbar a {
+    display: block;
+    color: #FFF;
+    font-size: 1em;
+    text-decoration: none;
+    padding: 2px 4px;
+    min-width: 1em;
+}
+.controlbar .selected {
+    color: var(--secondary);
+    text-shadow: 1px 1px 2px #111;
+}
+.controlbar .left {
+    float: left;
+}
+.controlbar .right {
+    float: right;
+}
+.controlbar .middle {
+    overflow: hidden;
+    margin: 0 auto;
+    width: 75%;
+    text-align: center;
+}
+.controlbar .middle img{
+    height: 30px;
+    width: auto;
+    margin: -5px;
+    padding: 0;
+}
+
+/* sliders */
+.controlbar .dvr {
+    width: 100% !important;
+}
+.controlbar .volume {
+    /* display: none; */
+    width: 100px !important;
+    margin-top: 10px;
+}
+.controlbar input[type=range] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: var(--slider-thickness);
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+}
+.controlbar input[type=range]:hover {
+      opacity: 1;
+}
+.controlbar input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: var(--slider-thumb-width);
+    height: var(--slider-thumb-thickness);
+    background: var(--primary);
+    cursor: pointer;
+    /*border-right: 2px solid rgba(255, 255, 255, 0.8);
+    border-left: 2px solid rgba(255, 255, 255, 0.8);*/
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+.controlbar input[type=range]::-webkit-slider-thumb:hover {
+    height: calc(var(--slider-thumb-thickness)*2);
+}
+.controlbar input[type=range]::-moz-range-thumb {
+    width: var(--slider-thumb-width);
+    height: var(--slider-thumb-thickness);
+    background: var(--primary);
+    cursor: pointer;
+}
+.controlbar input[type=range]::-moz-range-thumb:hover {
+    height: calc(var(--slider-thumb-thickness)*2);
+}
+
+/* hide fullscreen controls */
+video::-webkit-media-controls-enclosure {
+    display:none !important;
+}
+
+/* Universal Classes */
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}
+.hide-mouse {
+    cursor: none;
+}
+.show-mouse {
+    cursor: pointer;
+}

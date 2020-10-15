@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=euc-kr"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HLS.js</title>
+    <link rel="shortcut icon" type="image/png" href="" />
+    <style>
+body {
+    background: #333;
+    margin: 0;
+}
+#video-url {
+    min-width: 625px;
+    padding: 0.25em;
+    font-size: 1.2em;
+}
+form {
+    display: block;
+    width: 720px;
+    margin: 0 auto;
+}
+.player {
+    margin: 0 auto;
+}
+.playerbar {
+    width: 100%;
+    background: #222;
+    margin-top: 20px;
+}
+</style>
+
+</head>
+<body>
+    <div class="playerbar">
+
+    <div class="player" data-fullscreen="true"><!--  videos must be wrapped in div with class="player"  -->
+        <video id="video1" src="https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8" poster="/player/img/mlg-logo-loop.gif">
+        <!-- <video id="video1" src="http://cdn.theoplayer.com/video/adultswim/clip.m3u8" poster="/player/img/mlg-logo-loop.gif"> -->
+        <!-- <track kind="subtitles" src="test.vtt" srclang="en-us" label="English SideCar"> -->
+        <!-- <track kind="metadata" label="thumbnail" src="thumbsvtt/thumbs.vtt" srclang="thumbnail" default="default"></track> -->
+        </video>
+    </div>
+
+    </div>
+    <!-- <a href="#" id="testbutton">testbutton</a> -->
+    <script src="//cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script type="text/javascript" src="player/player.js?ver=132"></script>
+
+
+
+</body>
+</html>
